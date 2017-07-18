@@ -121,6 +121,6 @@ Make it something you're proud to look at.
 
 [sandbox challenge]: ../../../sinatra-sandbox-challenge
 [proper formatting challenge]: ../../../layout-drill-proper-typesetting-challenge
-[AR validations]: http://guides.rubyonrails.org/active_record_callbacks.html
+[AR validations]: http://guides.rubyonrails.org/active_record_validations.html
 [valid_invalid]: http://guides.rubyonrails.org/active_record_validations.html#valid-questionmark-and-invalid-questionmark
 [errors]: http://guides.rubyonrails.org/active_record_validations.html#working-with-validation-errors
