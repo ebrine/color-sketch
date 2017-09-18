@@ -1,5 +1,10 @@
-get '/entries' do
+get '/' do
   @entries = Entry.all
-  p @entries
-  erb :entries
+  erb :index
+end
+
+get '/entries/:id' do
+  puts params[:id]
+  @entry = Entry.find(params[:id])
+  erb :show
 end

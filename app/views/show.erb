@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Welcome to Anonymous Blog!</h1>
+
+  <% if @entry %>
+    <h2><%= @entry.title %></h2>
+    <h3><%= @entry.author %></h3>
+    <p><%= @entry.created_at %></p>
+    <p><%= @entry.body %></p>
+  <% end %>
+
+</div>
