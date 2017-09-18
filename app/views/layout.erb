@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
@@ -14,10 +14,20 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
-
   <title></title>
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/list_all">List All Entries</a></li>
+      <li><a href="/show_entry">Search for a Specific Entry</a></li>
+      <li><a href="/create">Create an Entry</a></li>
+      <li><a href="/update">Update an Existing Entry</a></li>
+      <li><a href="/delete">Delete an Existing Entry</a></li>
+      <li><a href="/tags">Find all by Tag</a></li>
+    </ul>
+  </nav>
   <%= yield %>
 </body>
 </html>

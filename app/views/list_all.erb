@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>List All Entries!</h1>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Entry</th>
+    </tr>
+    <% @all_entries.each do |entry| %>
+    <tr>
+      <td><%= entry.title %></td>
+      <td><%= entry.body %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
