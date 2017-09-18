@@ -3,11 +3,13 @@
 
   <table>
     <tr>
+      <th>Post no.</th>
       <th>Title</th>
       <th>Entry</th>
     </tr>
     <% @all_entries.each do |entry| %>
     <tr>
+      <td><%= entry.id %></td>
       <td><%= entry.title %></td>
       <td><%= entry.body %></td>
     </tr>
