@@ -1,4 +1,4 @@
 get '/' do
-  # Look in app/views/index.erb
+  @entries = Blog.find(1).entries
   erb :index
 end
