@@ -1,0 +1,11 @@
+<div class="container">
+  <ul>
+    <%Entry.all.each do |entry| %>
+      <%if entry.tags.pluck(:tag_name).include? @tag_name %>
+        <li>
+          <%=entry.title%>
+        </li>
+      <%end%>
+    <%end %>
+  </ul>
+</div>

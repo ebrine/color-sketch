@@ -37,3 +37,8 @@ post '/entry/:id/new_tag' do
   entry.tags << tag
   redirect to("/entry/#{entry.id}")
 end
+
+get '/entry/:tag_name/search' do
+  @tag_name = Tag.find_by({tag_name: params[:tag_name]}).tag_name || ""
+  erb :show_tags
+end
