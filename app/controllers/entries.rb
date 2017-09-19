@@ -16,10 +16,11 @@ get "/entries/:entry" do
 end
 
 post "/entries/new" do
-  Entry.create(title: params[:title], body: params[:body])
+  entry = Entry.create(title: params[:title], body: params[:body])
   tags = params[:tags].split(",")
   tags.each do |tag|
-    Tag.create(name: tag.strip)
+    tag_object = Tag.find_or_create_by(name: tag.strip)
+    entry.tags << tag_object
   end
   redirect '/'
 end
