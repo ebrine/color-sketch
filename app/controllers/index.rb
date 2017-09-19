@@ -39,7 +39,14 @@ post '/update' do
   @field_selection = params[:field_selection]
   @new_data = params[:field_value]
   post = Entry.find_by(id: @entry_id)
-  post.update_attribute(@field_selection.to_s, @new_data)
+  if @field_selection == "tags"
+    tag_array = @new_data.split(' ')
+    tag_array.each do |tag|
+      post.tags << Tag.find_or_create_by(category: tag)
+    end
+  else
+    post.update_attribute(@field_selection.to_s, @new_data)
+  end
   redirect to('/update')
 end
 
