@@ -6,6 +6,11 @@
     <h3><%= @entry.author %></h3>
     <p><%= @entry.created_at %></p>
     <p><%= @entry.body %></p>
+    <% @entry.tags.each do |tag| %>
+      <a href="/tags/<%= tag.id %>"><%= tag.name %></a>
+      <br />
+    <% end %>
+    <br />
   <% end %>
 
   <a href="/entries/edit/<%= @entry.id %>">Edit This Post</a>
