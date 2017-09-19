@@ -2,7 +2,6 @@ get "/entries/create" do
   erb :create
 end
 
-
 post "/entries/delete/:entry" do
   id = params[:entry]
   @entry = Entry.find(id)
@@ -16,12 +15,20 @@ get "/entries/:entry" do
   erb :entries
 end
 
-
-post "/entries/save" do
+post "/entries/new" do
   Entry.create(title: params[:title], body: params[:body])
   redirect '/'
 end
 
-post "/entries/edit" do
+get "/entries/edit/:entry" do
+  @entry = Entry.find(params[:entry])
+  erb :edit
+end
 
+post "/entries/save/:entry" do
+  entry = Entry.find(params[:entry])
+  entry.title = params[:title]
+  entry.body = params[:body]
+  entry.save
+  redirect '/'
 end

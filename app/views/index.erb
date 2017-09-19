@@ -4,11 +4,7 @@
   <div>
     <a href="/entries/create">Create Entry</a>
      <% @entries.each do |entry|%>
-  <h2><a href="/entries/<%= entry.id %>"> <%= entry.title %></a> </h2>
-
-    <% entry.tags.each do |tag| %>
-    <p>  <%= tag.name  %> </p>
-    <% end%>
+      <h2><a href="/entries/<%= entry.id %>"> <%= entry.title %></a> </h2>
      <% end %>
   </div>
 </div>
