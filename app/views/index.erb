@@ -20,4 +20,30 @@
       <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
     </tr>
   </table>
+
+  <form action="/" method="post">
+    <input type="text" name="title" placeholder="Enter Title Here">
+    <textarea type="text" name="body" placeholder="Enter Body Here"></textarea>
+    <input type="text" name="tag" placeholder="Enter Tag Here">
+    <input type="submit" value="Submit!">
+  </form>
+
+  <br><br><br>
+
+  <table border="thick">
+    <tr>
+      <th colspan="2">Blog Post</th>
+    </tr>
+    <% if @posts %>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.title %></td>
+          <td><%= post.body %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><%= post.tags.all.pluck(:tag_name).join(", ") %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
 </div>
