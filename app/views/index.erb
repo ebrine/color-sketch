@@ -1,4 +1,6 @@
 <div class="container">
+  <br><br>
+
   <form action="/" method="post">
     <div>
       <input type="text" name="title" placeholder="Enter Title Here">
@@ -14,14 +16,22 @@
     </div>
   </form>
 
+  <br><br>
+
   <form action="/search" method="post">
     <input type="text" name="tag_search" placeholder="Search By Tag" />
     <button>Search</button>
   </form>
 
+  <br><br>
+
   <table border="thick">
     <tr>
-      <th colspan="2">Blog Post</th>
+      <th colspan="2">Blog Posts</th>
+    </tr>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
     </tr>
     <% if @posts %>
       <% @posts.each do |post| %>
@@ -35,4 +45,14 @@
       <% end %>
     <% end %>
   </table>
+
+  <br><br>
+  <% if @errors != [] && @errors != nil %>
+    <h4>Errors:</h4>
+    <ul>
+      <% @errors.each do |e| %>
+        <li><%= e %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>
