@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Welcome to Anonymous Blog!</h1>
 
-  <form action='/entries/update' method='post'>
+  <form action='/entries/update/<%= @entry.id %>' method='post'>
     <textarea id="Title" name="entry[title]" rows="1" cols="60"><%= @entry.title %></textarea>
     <br />
     <label for="Body">Your Post Here</label>

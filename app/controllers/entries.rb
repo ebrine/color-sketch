@@ -23,6 +23,16 @@ get '/entries/edit/:id' do
   erb :edit
 end
 
+get '/entries/delete/:id' do
+  Entry.find(params[:id]).delete
+  redirect '/'
+end
+
+post '/entries/update/:id' do
+  Entry.find(params[:id]).update(params[:entry])
+  redirect "/entries/#{params[:id]}"
+end
+
 get '/entries/:id' do
   @entry = Entry.find(params[:id])
   erb :show
