@@ -73,6 +73,7 @@ DEPENDENCIES
   activesupport (~> 5.0)
   faker (~> 1.7.3)
   pg (~> 0.18)
+  rack-test
   rake (~> 12.0.0)
   rspec (~> 3.5)
   shotgun

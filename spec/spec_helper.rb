@@ -7,4 +7,13 @@ require 'rubygems'
 # command line when we run rake spec.  That's tedious, so do it here.
 ENV['RACK_ENV'] ||= 'test'
 
+require 'rack/test'
+
+RSpec.configure do |config|
+  config.include Rack::Test::Methods
+end
+
+def app
+  Sinatra::Application
+end
 require File.expand_path("../../config/environment", __FILE__)
