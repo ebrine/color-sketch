@@ -1,5 +1,5 @@
 require 'Faker'
 
 10.times do
-  Post.create(titlecle: Faker::Space.nebula, article: Faker::Seinfeld.quote)
+  Post.create(title: Faker::Space.nebula, article: Faker::Seinfeld.quote)
 end
