@@ -1,0 +1,13 @@
+<div class='container'>
+  <form action='/entry/<%= @current_entry.id %>' method="post">
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" value="<%= @current_entry.title %>" name="title">
+    </div>
+    <div>
+      <label for="body">Body:</label>
+      <textarea name="body"><%= @current_entry.body %></textarea>
+    </div>
+    <input type="submit" value="Submit!"/>
+  </form>
+</div>
