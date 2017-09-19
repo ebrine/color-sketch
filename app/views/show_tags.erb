@@ -1,4 +1,5 @@
 <div class="container">
+  <%= @search_query %>
   <ul>
     <%Entry.all.each do |entry| %>
       <%if entry.tags.pluck(:tag_name).include? @tag_name %>

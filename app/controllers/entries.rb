@@ -32,13 +32,24 @@ get '/entry/:id/new_tag' do
 end
 
 post '/entry/:id/new_tag' do
-  tag = Tag.create({tag_name: params[:tag]})
   entry = Entry.find(params[:id])
-  entry.tags << tag
-  redirect to("/entry/#{entry.id}")
+  tag_name = params[:tag]
+  if tag_name =~ /\W/
+    redirect to("/entry/#{entry.id}")
+  else
+    tag = Tag.create({tag_name: tag_name})
+    entry.tags << tag
+    redirect to("/entry/#{entry.id}")
+  end
 end
 
 get '/entry/:tag_name/search' do
-  @tag_name = Tag.find_by({tag_name: params[:tag_name]}).tag_name || ""
+  @search_query = params[:tag_name]
+  @tag_name = Tag.find_by({tag_name: params[:tag_name]})
+  if @tag_name == nil
+    @tag_name = ""
+  else
+    @tag_name = @tag_name.tag_name
+  end
   erb :show_tags
 end

@@ -4,7 +4,15 @@ get '/' do
 end
 
 post '/' do
-  tag = Tag.create({tag_name: params[:tag]})
+  tag_name = params[:tag]
+  if tag_name =~ /\W/
+    redirect to("/")
+  end
+  tag = Tag.create({tag_name: tag_name})
   Entry.create({title: params[:title], body: params[:body], tags: [tag]})
   redirect to("/")
+end
+
+post "/search" do
+  redirect to("/entry/#{params[:tag_search]}/search")
 end
