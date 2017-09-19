@@ -1,12 +1,13 @@
 <div class="container">
   <h1>SpaceFeld!</h1>
 
-  <% if defined?(@article) %>
+  <% if defined?(@article) && @article != nil %>
   <h2><%= @article.title %></h2>
   <p><%= @article.article %></p>
+    <a href="/edit_entry">Edit This Entry</a>
   <% else %>
     <% @posts.each do |post| %>
-    <h2><%= post.title %></h2>
+    <h2><a href="/?id=<%= post.id %>"> <%= post.title %></a></h2>
     <p><%= post.article %></p>
     <% end %>
   <% end %>
