@@ -1,5 +1,3 @@
-# @posts = [{"title" => "Cher", "body" => "Is a wonderful artist.", "tags" => ["Artist", "Wonderful", "Wow"]}]
-
 get '/' do
   @posts = Entry.all
   erb :index

@@ -1,0 +1,14 @@
+<div class="container">
+  <h2><%= @current_entry.title %></h2>
+  <p>
+    <strong>Body</strong><br />
+    <%= @current_entry.body %>
+  </p>
+  <p>
+    <strong>Tags</strong><br />
+    <%= @current_entry.tags.all.pluck(:tag_name).join(", ") %>
+  </p>
+
+  <a href='/entry/<%= @current_entry.id %>/edit'>Edit</a>
+  <a href='/entry/<%= @current_entry.id %>/delete'>Delete</a>
+</div>
