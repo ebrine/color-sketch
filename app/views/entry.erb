@@ -9,8 +9,8 @@
     <%= @current_entry.tags.all.pluck(:tag_name).join(", ") %>
   </p>
 
-  <h4>Errors:</h4>
   <% if @errors != [] && @errors != nil %>
+  <h4>Errors:</h4>
   <ul>
     <% @errors.each do |error| %>
       <li><%= error %></li>
