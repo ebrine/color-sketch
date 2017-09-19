@@ -1,23 +1,12 @@
 <div class="container">
-  <h1>Entry</h1>
-  <p>Hello, world!</p>
-
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+  <h1><%= @entry.title %></h1>
+  <p>
+    <%= @entry.body %>
+  </p>
+    <% @entry.tags.each do |tag| %>
+    <p>  Tags: <%= tag.name  %> </p>
+    <% end%>
+    <form action="/entries/delete/<%=@entry.id%>" method="post">
+    <input type="submit" name="delete" value="Delete"/>
+  </form>
 </div>
