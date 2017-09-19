@@ -1,7 +1,11 @@
 <div class="container">
   <h2>Title: <%=@entry_title%></h2>
   <h3>Author: <%=@entry_author%></h3>
-  <h3>Body: <%=@entry_body%></h3>
+  <h4>Tags:  </h4>
+  <%@entry_tags.each do |tag| %>
+  <li><%=tag%></li>
+  <%end%>
+  <p> <%=@entry_body%></p>
 
   <a href="/edit">Edit</a>
   <a href="/delete">Delete</a>

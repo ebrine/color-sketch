@@ -11,6 +11,7 @@ get '/entry/' do
   @entry_title = entry.title
   @entry_author = entry.author
   @entry_body = entry.body
+  @entry_tags = entry.tags.map {|tag| tag.name}
   erb :entry
 end
 
