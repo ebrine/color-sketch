@@ -4,7 +4,9 @@
   <% if defined?(@article) && @article != nil %>
   <h2><%= @article.title %></h2>
   <p><%= @article.article %></p>
+    <a href="/<%= @current_id %>/delete_entry">Delete This Entry</a>
     <a href="/<%= @current_id %>/edit_entry">Edit This Entry</a>
+    <a href="/">Take Me Home!</a>
   <% else %>
     <% @posts.each do |post| %>
     <h2><a href="/<%= post.id %>"> <%= post.title %></a></h2>
