@@ -30,11 +30,17 @@ post '/create' do
 end
 
 get '/update' do
-
+  @all_entries = Entry.all
+  erb :update
 end
 
 post '/update' do
-
+  @entry_id = params[:entry_id]
+  @field_selection = params[:field_selection]
+  @new_data = params[:field_value]
+  post = Entry.find_by(id: @entry_id)
+  post.update_attribute(@field_selection.to_s, @new_data)
+  redirect to('/update')
 end
 
 get '/delete' do

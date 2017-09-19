@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>Update a post!</h1>
+  <table>
+    <tr>
+      <th>Post no.</th>
+      <th>Title</th>
+      <th>Entry</th>
+      <th>Tags</th>
+    </tr>
+    <% @all_entries.each do |entry| %>
+    <tr>
+      <td><%= entry.id %></td>
+      <td><%= entry.title %></td>
+      <td><%= entry.body %></td>
+      <td><% tags_array = [] %>
+          <% entry.tags.each do |tag| %>
+          <% tags_array << tag.category %>
+          <% end %>
+          <%= tags_array.join(", ") %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+
+  <p>============================================================</p>
+
+  <form action="/update" method="post">
+    <p>Choose an entry number to edit</p>
+    <input type="text" name="entry_id">
+    <p>What would you like to update?</p>
+    <label><input type="radio" name="field_selection" value="title">  title</label>
+    <label><input type="radio" name="field_selection" value="body">  body</label>
+    <p>Enter your new information</p>
+    <input type="text" name="field_value">
+    <input type="submit">
+  </form>
+</div>
