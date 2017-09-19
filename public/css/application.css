@@ -30,6 +30,7 @@ a {
 .press {
   background-color: #1282A2;
   padding: 15px 10px;
+  border-radius: 2px;
 }
 
 .nav-container {
@@ -65,8 +66,9 @@ a {
 
 .main-article-add-button {
   display: block;
+  text-align: center;
   margin-top: 50px;
-  width: 20%;
+  width: 30%;
 }
 
 input,
@@ -94,14 +96,14 @@ button {
   margin: 20px 0px 0px 75%;
   padding: 12px 10px;
   border-radius: 2px;
-  border: 2px solid #FEFCFB;
+  border: none;
   font-size: 1.2em;
   background-color: lightgreen;
   color: #333;
 }
 
 .index-article {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .home-button {
@@ -126,7 +128,7 @@ button {
   font-size: .8em;
   font-style: italic;
   color: teal;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
 
