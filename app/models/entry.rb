@@ -1,3 +1,4 @@
 class Entry < ApplicationRecord
-  # Remember to create a migration!
+  has_many :entries_tags
+  has_many :tags, through: :entries_tags
 end
