@@ -5,12 +5,18 @@
     <title>BLAINE AND JAMIE'S SUPER COOL BLOG</title>
   </head>
   <body>
-    <% @entries.each do |entry| %>
+    <div class="container">
+      <h1>BLAINE AND JAMIE'S SUPER COOL BLOG</h1>
+      <table>
+      <% @entries.each do |entry| %>
     <div>
       <h2><%= entry.title %></h2>
       <p><%= entry.article %></p>
     </div>
     <% end %>
+    <p><a href='http://localhost:9393/new_entry'>Add New Entry</a> </p>
+    </table>
+    </div>
   </body>
 </html>
 
