@@ -4,9 +4,10 @@ get '/' do
 end
 
 get '/:id' do
-  article_to_find = params[:id]
-  @current_id = article_to_find.to_i
-  @article = Post.find_by(id: article_to_find.to_i)
+    article_to_find = params[:id]
+    @current_id = article_to_find.to_i
+    @article = Post.find_by(id: article_to_find.to_i)
+  #need to create a 404 page
   erb :index
 end
 
@@ -17,8 +18,9 @@ end
 post '/new_entry' do
   title = params[:title]
   article = params[:article]
-  Post.create(title: title, article: article)
-  redirect '/'
+  tag = params[:tags]
+  Post.create(title: title, article: article) << Tag.create(tag: tag)
+  # redirect '/'
 end
 
 get '/:id/edit_entry' do
