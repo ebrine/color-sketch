@@ -9,6 +9,15 @@
     <%= @current_entry.tags.all.pluck(:tag_name).join(", ") %>
   </p>
 
+  <h4>Errors:</h4>
+  <% if @errors != [] && @errors != nil %>
+  <ul>
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
   <a href='/entry/<%= @current_entry.id %>/edit'>Edit</a>
   <a href='/entry/<%= @current_entry.id %>/delete'>Delete</a>
   <a href='/entry/<%= @current_entry.id %>/new_tag'>Add a tag</a>

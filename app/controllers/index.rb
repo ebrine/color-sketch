@@ -1,4 +1,3 @@
-@errors = []
 enable :sessions
 
 get '/' do

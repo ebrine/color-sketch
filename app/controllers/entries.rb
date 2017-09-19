@@ -1,5 +1,8 @@
+enable :sessions
+
 get '/entry/:id' do
   @current_entry = Entry.find(params[:id])
+  @errors = session[:errors]
   erb :entry
 end
 
@@ -9,9 +12,16 @@ get '/entry/:id/edit' do
 end
 
 post '/entry/:id/edit' do
+  session[:errors] = []
   entry = Entry.find(params[:id])
-  entry.update_attributes({title: params[:title], body: params[:body],
-    updated_at: DateTime.now})
+  entry.title = params[:title]
+  entry.body = params[:body]
+  entry.updated_at = DateTime.now
+  if entry.valid?
+    entry.save
+  else
+    session[:errors] = entry.errors.full_messages
+  end
   redirect to("/entry/#{entry.id}")
 end
 
