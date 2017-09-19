@@ -38,19 +38,23 @@ end
 
 get '/entry/:id/new_tag' do
   @current_entry = Entry.find(params[:id])
+  @errors = session[:errors]
   erb :new_tag
 end
 
 post '/entry/:id/new_tag' do
+  session[:errors] = []
   entry = Entry.find(params[:id])
   tag_name = params[:tag]
   if tag_name =~ /\W/
-    redirect to("/entry/#{entry.id}")
-  else
-    tag = Tag.create({tag_name: tag_name})
-    entry.tags << tag
-    redirect to("/entry/#{entry.id}")
+    session[:errors] << "Tag name must only include alphabetic characters."
   end
+  tag = Tag.new({tag_name: tag_name})
+  session[:errors] += tag.errors.full_messages
+  if session[:errors] == []
+    entry.tags << tag
+  end
+  redirect to("/entry/#{entry.id}")
 end
 
 get '/entry/:tag_name/search' do
