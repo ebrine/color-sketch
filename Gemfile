@@ -19,6 +19,7 @@ gem 'rake', '~> 12.0.0'
 gem 'shotgun'
 
 group :test do
-  gem 'faker', '~> 1.7.3'
+  # gem 'faker', '~> 1.7.3'
+  gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
   gem 'rspec', '~> 3.5'
 end
