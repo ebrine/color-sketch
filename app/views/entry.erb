@@ -7,7 +7,8 @@
   <%end%>
   <p> <%=@entry_body%></p>
 
-  <a href="/edit">Edit</a>
-  <a href="/delete">Delete</a>
-  <a href="/">Publish</a>
+  
+  <form action="/edit?entry_id=<%=@entry_id%>" method="post" ><input type="submit" value="Edit"/></form>
+  <form action="/delete?entry_id=<%=@entry_id%>" method="post" ><input type="submit" value="Delete"/></form>
+  <a href="/">Back to home</a>
 </div>

@@ -1,0 +1,23 @@
+<div class="container">
+
+  <form id="entry-form" action="/publish" method="post" >
+    <label>Title:</label>
+    <input type="text" name="title"/><br/>
+  </br/>
+    <label>Author:</label>
+    <input type="text" name="author" /><br/>
+  </br/>
+    <label>Tags</label><br />
+    <%@tag_names.each do |name| %>
+    <label><%=name %></label>
+    <input type="checkbox" name="<%=name %>" /><br />
+    <% end %><br />
+    <label>Other:</label>
+    <input type="text" name="other" /><br />
+    <label>Body:</label>
+    <input type="textarea" name="body" /><br/>
+  </br/>
+    <input type="submit" value="Publish" />
+  </form><!-- end entry form -->
+
+</div><!-- end container -->
