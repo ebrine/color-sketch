@@ -18,6 +18,11 @@ post '/entries/create' do
   end
 end
 
+get '/entries/edit/:id' do
+  @entry = Entry.find(params[:id])
+  erb :edit
+end
+
 get '/entries/:id' do
   @entry = Entry.find(params[:id])
   erb :show
