@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Welcome to Anonymous Blog!</h1>
+
+  <% if @errors %>
+    <% @errors.each do |error| %>
+    <ul>
+      <li><%= error %></li>
+    </ul>
+    <% end %>
+  <% end %>
+  <form action='/entries/create' method='post'>
+    <input type='text' name='entry[title]' placeholder="Title"/>
+    <br />
+    <label for="Body">Your Post Here</label>
+    <br />
+    <textarea id='Body' name="entry[body]" rows="8" cols="60"></textarea>
+    <input type='text' name='entry[author]' placeholder="Author"/>
+    <input type='submit' name='Submit'/>
+  </form>
+
+</div>

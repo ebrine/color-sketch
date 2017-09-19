@@ -3,8 +3,22 @@ get '/' do
   erb :index
 end
 
+get '/entries/new' do
+  erb :new
+end
+
+post '/entries/create' do
+  @entry = Entry.new(params[:entry])
+  if @entry.valid?
+    @entry.save
+    redirect "entries/#{@entry.id}"
+  else
+    @errors = @entry.errors.full_messages
+    erb :new
+  end
+end
+
 get '/entries/:id' do
-  puts params[:id]
   @entry = Entry.find(params[:id])
   erb :show
 end
