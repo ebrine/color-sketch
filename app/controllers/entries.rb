@@ -25,3 +25,15 @@ post '/entry/:id/delete' do
   entry.destroy
   redirect to("/")
 end
+
+get '/entry/:id/new_tag' do
+  @current_entry = Entry.find(params[:id])
+  erb :new_tag
+end
+
+post '/entry/:id/new_tag' do
+  tag = Tag.create({tag_name: params[:tag]})
+  entry = Entry.find(params[:id])
+  entry.tags << tag
+  redirect to("/entry/#{entry.id}")
+end
