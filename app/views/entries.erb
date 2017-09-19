@@ -3,7 +3,7 @@
   <p><%= @entry.body %></p>
   <p>Tags:
   <% @entry.tags.each do |tag| %>
-    <%= tag.name  %>,
+    <a href="/tags/<%=tag.id%>"><%= tag.name  %></a>,
   <% end%>
   </p>
     <form action="/entries/delete/<%=@entry.id%>" method="post">
