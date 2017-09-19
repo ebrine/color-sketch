@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>List All Entries!</h1>
+  <h1>Here are the available entries for deletion!</h1>
 
   <table>
     <tr>
@@ -22,4 +22,10 @@
     </tr>
     <% end %>
   </table>
+
+  <form action="/delete" method="post">
+    <p>Enter a post number to delete.</p>
+    <input type="text" name="entry_id">
+    <input type="submit">
+  </form>
 </div>
