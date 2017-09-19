@@ -2,5 +2,10 @@
   <h1>SpaceFeld!</h1>
   <h2>Fix those mistakes...</h2>
 
+  <form action="/<%= @current_id %>edit_entry" method="post">
+    <input type="text" name="title" value="<%= @article.title %>">
+    <textarea name='article' cols='40' rows='8'><%= @article.article %></textarea>
+    <button type="submit">Make Me Live</button>
+  </form>
 
 </div>

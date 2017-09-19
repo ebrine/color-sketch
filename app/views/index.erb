@@ -4,10 +4,10 @@
   <% if defined?(@article) && @article != nil %>
   <h2><%= @article.title %></h2>
   <p><%= @article.article %></p>
-    <a href="/edit_entry">Edit This Entry</a>
+    <a href="/<%= @current_id %>/edit_entry">Edit This Entry</a>
   <% else %>
     <% @posts.each do |post| %>
-    <h2><a href="/?id=<%= post.id %>"> <%= post.title %></a></h2>
+    <h2><a href="/<%= post.id %>"> <%= post.title %></a></h2>
     <p><%= post.article %></p>
     <% end %>
   <% end %>

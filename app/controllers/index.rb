@@ -1,9 +1,12 @@
 get '/' do
   @posts = Post.all
-  if params.any?
-    article_to_find = params[:id]
-    @article = Post.find_by(id: article_to_find.to_i)
-  end
+  erb :index
+end
+
+get '/:id' do
+  article_to_find = params[:id]
+  @current_id = article_to_find.to_i
+  @article = Post.find_by(id: article_to_find.to_i)
   erb :index
 end
 
@@ -18,7 +21,9 @@ post '/new_entry' do
   redirect '/'
 end
 
-get '/edit_entry' do
-
+get '/:id/edit_entry' do
+  article_to_find = params[:id]
+  @current_id = article_to_find.to_i
+  @article = Post.find_by(id: article_to_find.to_i)
   erb :edit_entry
 end
