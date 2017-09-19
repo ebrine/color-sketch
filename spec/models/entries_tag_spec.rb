@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe EntriesTag do
   let(:entry) {Entry.create(title: 'Ham', author: 'Hammstein', body: 'Hams')}
-  let(:tag) {Tag.create}
+  let(:tag) {Tag.create(name: 'yay')}
   let(:entry_tag) {EntriesTag.create(entry_id: entry.id, tag_id: tag.id)}
   describe 'associations' do
     it 'belongs to an entry' do
