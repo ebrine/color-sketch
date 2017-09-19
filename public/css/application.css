@@ -60,6 +60,7 @@ a {
   width: 100%;
   height: 20px;
   background-color: #1282A2;
+  animation: shift 2s;
 }
 
 .main-article-add-button {
@@ -100,7 +101,7 @@ button {
 }
 
 .index-article {
-  margin-bottom: 55px;
+  margin-bottom: 30px;
 }
 
 .home-button {
@@ -109,4 +110,31 @@ button {
   border: none;
   font-size: 1.2em;
   background-color: #1282A2;
+}
+
+.read-on {
+  font-size: .9em;
+  color: #7e55bb;
+  font-weight: bold;
+}
+
+.deleted {
+  margin-bottom: 200px;
+}
+
+.tags {
+  font-size: .8em;
+  font-style: italic;
+  color: teal;
+  margin-bottom: 80px;
+}
+
+
+@keyframes shift {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }

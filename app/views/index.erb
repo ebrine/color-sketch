@@ -16,7 +16,8 @@
   <% else %>
     <% @posts.each do |post| %>
     <h2><a href="/<%= post.id %>"> <%= post.title %></a></h2>
-    <p class="index-article"><%= post.article %></p>
+    <p class="index-article"><%= post.article[0..200] + "..."%><a class="read-on" href="/<%= post.id %>"> Read On</a></p>
+    <p class="tags">tags: <%= post.tags.pluck(:tag).join(", ") %><p>
     <% end %>
     <a class="press main-article-add-button" href="/new_entry/">Add New Entry</a>
   <% end %>
