@@ -49,10 +49,14 @@ post '/delete' do
   redirect to('/delete')
 end
 
-get '/tags' do
-
+get '/list_tags' do
+  @all_tags = Tag.all
+  erb :list_tags
 end
 
-post '/tags' do
-
+post '/list_tags' do
+  tag_id = params[:tag_id]
+  tag = Tag.find_by(id: tag_id)
+  @all_entries = tag.entries
+  erb :list_all
 end
