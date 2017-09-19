@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Single Entry</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <h2><%= @for_now.title %></h2>
+      <p><%= @for_now.article %></p>
+      <br>
+      <h3>Edit Entry:</h3>
+      <form accept-charset="UTF-8" action="/update_title" method="post">
+        <input type="text" name="title" placeholder="title"><br>
+        <input type="submit" value="Submit">
+        <!-- <input type="text" name="article" placeholder="article"><br> -->
+
+      </form>
+
+    </div>
+
+  </body>
+  <footer>
+    <ul>
+    <li><a href="/">Home</a></li>
+    </ul>
+  </footer>
+</html>
