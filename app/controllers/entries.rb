@@ -34,6 +34,11 @@ post "/entries/save/:entry" do
   entry = Entry.find(params[:entry])
   entry.title = params[:title]
   entry.body = params[:body]
+  tags = params[:tags].split(",")
+  tags.each do |tag|
+    tag_object = Tag.find_or_create_by(name: tag.strip)
+    entry.tags << tag_object
+  end
   entry.save
   redirect '/'
 end

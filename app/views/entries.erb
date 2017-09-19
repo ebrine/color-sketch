@@ -1,4 +1,5 @@
 <div class="container">
+  <div class="entry">
   <h1><%= @entry.title %></h1>
   <p><%= @entry.body %></p>
   <p>Tags:
@@ -12,4 +13,5 @@
     <form action="/entries/edit/<%=@entry.id%>" method="get">
       <input type="submit" name="edit" value="Edit">
     </form>
+  </div>
 </div>
