@@ -1,5 +1,5 @@
 <div class='container'>
-  <form action='/entry/<%= @current_entry.id %>' method="post">
+  <form action='/entry/<%= @current_entry.id %>/edit' method="post">
     <div>
       <label for="title">Title:</label>
       <input type="text" value="<%= @current_entry.title %>" name="title">
