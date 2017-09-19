@@ -1,18 +1,24 @@
+
 <div class="container">
   <h1>SpaceFeld!</h1>
 
+  <div class="main">
   <% if defined?(@article) && @article != nil %>
   <h2><%= @article.title %></h2>
-  <p><%= @article.article %></p>
-    <a href="/<%= @current_id %>/delete_entry">Delete This Entry</a>
-    <a href="/<%= @current_id %>/edit_entry">Edit This Entry</a>
-    <a href="/">Take Me Home!</a>
+  <p class="single-article"><%= @article.article %></p>
+  <div class="nav-container">
+    <a class="press" href="/<%= @current_id %>/delete_entry">Delete This Entry</a>
+    <a class="press" href="/<%= @current_id %>/edit_entry">Edit This Entry</a>
+    <a class="press" href="/">Take Me Home!</a>
+  </div>
+
   <% else %>
     <% @posts.each do |post| %>
     <h2><a href="/<%= post.id %>"> <%= post.title %></a></h2>
     <p><%= post.article %></p>
     <% end %>
+    <a class="press main-article" href="/new_entry/">Add New Entry</a>
   <% end %>
 
-  <a href="/new_entry">Add New Entry</a>
+  </div>
 </div>

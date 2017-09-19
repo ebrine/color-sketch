@@ -11,7 +11,7 @@ get '/:id' do
   erb :index
 end
 
-get '/new_entry' do
+get '/new_entry/' do
   erb :new_entry
 end
 
