@@ -11,5 +11,6 @@ end
 # end
 
 get '/entries/:id' do
-  p params
+  @entry = Entry.find(params[:id])
+  erb :show
 end
