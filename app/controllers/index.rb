@@ -1,4 +1,10 @@
 get '/' do
-  # Look in app/views/index.erb
+  @entries = Entry.all
   erb :index
+end
+
+post '/entries' do
+  Entry.create(title: params[:title], body: params[:body])
+  redirect '/'
+
 end
