@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Post Number <%= @index %></h1>
+
+  <table>
+    <tr>
+      <th>Post no.</th>
+      <th>Title</th>
+      <th>Entry</th>
+      <th>Tags</th>
+    </tr>
+    <% if @entry != nil %>
+      <td><%= @entry.id %></td>
+      <td><%= @entry.title %></td>
+      <td><%= @entry.body %></td>
+      <td><% tags_array = [] %>
+          <% @entry.tags.each do |tag| %>
+          <% tags_array << tag.category %>
+          <% end %>
+          <%= tags_array.join(", ") %>
+      </td>
+    <% end %>
+  </table>
+</div>

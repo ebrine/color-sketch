@@ -8,18 +8,20 @@
       <th>Entry</th>
       <th>Tags</th>
     </tr>
-    <% @all_entries.each do |entry| %>
-    <tr>
-      <td><%= entry.id %></td>
-      <td><%= entry.title %></td>
-      <td><%= entry.body %></td>
-      <td><% tags_array = [] %>
-          <% entry.tags.each do |tag| %>
-          <% tags_array << tag.category %>
-          <% end %>
-          <%= tags_array.join(", ") %>
-      </td>
-    </tr>
+    <% if @all_entries != nil %>
+      <% @all_entries.each do |entry| %>
+      <tr>
+        <td><a href="/list_all/<%= entry.id %>"><%= entry.id %></a></td>
+        <td><%= entry.title %></td>
+        <td><%= entry.body %></td>
+        <td><% tags_array = [] %>
+            <% entry.tags.each do |tag| %>
+            <% tags_array << tag.category %>
+            <% end %>
+            <%= tags_array.join(", ") %>
+        </td>
+      </tr>
+      <% end %>
     <% end %>
   </table>
 </div>

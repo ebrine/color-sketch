@@ -8,17 +8,17 @@
       <th>Tags</th>
     </tr>
     <% @all_entries.each do |entry| %>
-    <tr>
-      <td><%= entry.id %></td>
-      <td><%= entry.title %></td>
-      <td><%= entry.body %></td>
-      <td><% tags_array = [] %>
-          <% entry.tags.each do |tag| %>
-          <% tags_array << tag.category %>
-          <% end %>
-          <%= tags_array.join(", ") %>
-      </td>
-    </tr>
+      <tr>
+        <td><%= entry.id %></td>
+        <td><%= entry.title %></td>
+        <td><%= entry.body %></td>
+        <td><% tags_array = [] %>
+            <% entry.tags.each do |tag| %>
+            <% tags_array << tag.category %>
+            <% end %>
+            <%= tags_array.join(", ") %>
+        </td>
+      </tr>
     <% end %>
   </table>
 

@@ -1,15 +1,16 @@
-get '/' do
-  # Look in app/views/index.erb
-  erb :index
-end
+# get '/' do
+#   @all_entries = Entry.all
+#   erb :index
+# end
 
 get '/list_all' do
   @all_entries = Entry.all
   erb :list_all
 end
 
-get '/show_entry' do
-  erb :show_entry
+get '/list_all/:id' do
+  @entry = Entry.find(params[:id])
+  erb :view_one
 end
 
 get '/create' do
