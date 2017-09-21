@@ -6,6 +6,14 @@
   <%= @entry.body %>
 </p>
 <div>
+  <b>Tags</b>
+<% @entry.tags.each do |tag| %>
+
+  <a href='/tags/<%=tag.id%>'><%=tag.description%></a>
+
+<% end %>
+</div>
+<div>
   <a href='/entries/<%=@entry.id%>/edit'>Edit</a>
   <form action="/delete/<%=@entry.id%>" method="post">
     <input type="hidden" name="_method" value="delete"/>

@@ -3,6 +3,12 @@ get '/' do
   erb :index
 end
 
+get '/tags/:id' do
+  p params.inspect
+  @tagged_entries = Tag.find(params[:id])
+  erb :tag
+end
+
 get '/entries/new' do
   erb :new
 end

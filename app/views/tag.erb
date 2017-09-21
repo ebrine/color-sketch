@@ -1,0 +1,10 @@
+<div>
+  <% @tagged_entries.entries.each do |entry| %>
+<h2>  <a href='/entries/<%= entry.id %>'  > <%= entry.title %></a> </h2>
+</div>
+<div>
+  <p>
+    <%= entry.body %>
+  </p>
+  <% end %>
+</div>
