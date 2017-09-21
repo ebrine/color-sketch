@@ -23,16 +23,15 @@ get '/entries/:id/edit' do
   erb :edit
 end
 
-def edit_entry
+patch '/entries/:id' do
   blog = Entry.find(params[:id])
   blog.body = params[:body]
+  blog.save
   redirect "/entries/#{blog.id}"
 end
 
-patch '/entries/:id' do
-  edit_entry
-end
-
 put '/entries/:id' do
-  edit_entry
+  blog = Entry.find(params[:id])
+  blog.body = params[:body]
+  redirect "/entries/#{blog.id}"
 end
