@@ -1,7 +1,6 @@
-# get '/' do
-#   @all_entries = Entry.all
-#   erb :index
-# end
+get '/' do
+  redirect '/list_all'
+end
 
 get '/list_all' do
   @all_entries = Entry.all
@@ -20,14 +19,24 @@ end
 post '/create' do
   @title = params[:title]
   @body = params[:body]
-  @tags = params[:tags]
-  @tags = @tags.split(", ")
   entry = Entry.create(title: @title, body: @body)
-  @tags.each do |tag_string|
-    tag = Tag.find_or_create_by(category: tag_string)
-    entry.tags << tag
+  @errors = entry.errors
+  p @errors
+  if @errors
+    status 422
+    @messages = entry.errors.full_messages
+    erb :create
+  else 
+    entry.save
+    @tags = params[:tags]
+    @tags = @tags.split(", ")
+    @tags.each do |tag_string|
+      tag = Tag.find_or_create_by(category: tag_string)
+      @entry.tags << tag
+    end
+    redirect to('/list_all')
   end
-  redirect to('/create')
+  
 end
 
 get '/update' do
