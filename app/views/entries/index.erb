@@ -1,0 +1,13 @@
+<div class="container">
+  <% if @entries %>
+    <% @entries.each do |entry| %>
+      <a href="/entries/<%= entry.id %>">
+        <h3><%= entry.title %></h3>
+      </a>
+      <p>
+        <em>by: <%= entry.author %></em>
+      </p>
+      <hr>
+    <% end %>
+  <% end %>
+</div>

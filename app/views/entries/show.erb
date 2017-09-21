@@ -1,5 +1,4 @@
 <div class="container">
-  <h1>Welcome to Anonymous Blog!</h1>
 
   <% if @entry %>
     <h2><%= @entry.title %></h2>
@@ -7,5 +6,8 @@
     <p><%= @entry.created_at %></p>
     <p><%= @entry.body %></p>
   <% end %>
+
+  <h4 id="element1"><a href="/entries/<%= @entry.id %>/edit">Edit</a></h4>
+  <p id="element2"><%= erb :'entries/_delete', locals: { entry: @entry } %></p>
 
 </div>

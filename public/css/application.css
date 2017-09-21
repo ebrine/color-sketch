@@ -7,3 +7,23 @@
 th {
   text-align: left;
 }
+
+.delete_button {
+  border:none;
+  background: none;
+  color: #FF0000;
+}
+
+a{
+  text-decoration: none;
+}
+
+#element1 {
+  float:left;
+  margin:0;
+}
+#element2 {
+  padding-left : 20px;
+  float:left;
+  margin:0;
+ }

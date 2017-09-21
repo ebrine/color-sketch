@@ -1,6 +1,5 @@
 <div class="container">
-  <h1>Welcome to Anonymous Blog!</h1>
-
+<br>
   <% if @errors %>
     <% @errors.each do |error| %>
     <ul>
@@ -8,7 +7,8 @@
     </ul>
     <% end %>
   <% end %>
-  <form action='/entries/create' method='post'>
+
+  <form action='/entries' method='post'>
     <input type='text' name='entry[title]' placeholder="Title"/>
     <br />
     <label for="Body">Your Post Here</label>
@@ -17,5 +17,4 @@
     <input type='text' name='entry[author]' placeholder="Author"/>
     <input type='submit' name='Submit'/>
   </form>
-
 </div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <% if @errors %>
+    <% @errors.each do |error| %>
+    <ul>
+      <li><%= error %></li>
+    </ul>
+    <% end %>
+  <% end %>
+  <form action="/entries/<%= @entry.id %>" method='post'>
+    <input type="hidden" name="_method" value="patch">
+    <input type='text' name='entry[title]' value= "<%= @entry.title %>" >
+    <br />
+    <label for="Body">Your Post Here</label>
+    <br />
+    <textarea id='Body' name="entry[body]" rows="8" cols="60"><%= @entry.body %></textarea>
+    <input type='text' name='entry[author]' value="<%= @entry.author %>">
+    <input type='submit' name='Submit'/>
+  </form>
+</div>
