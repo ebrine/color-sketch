@@ -2,7 +2,8 @@ class CreateEntries < ActiveRecord::Migration[5.0]
   def change
     create_table :entries do |t|
       t.string :title, {:presence => true, limit: 60}
-      t.string :body, {:presence => true}
+      t.text :body, {:presence => true}
+      t.string :author, {:presence => true, limit: 60}
 
       t.timestamps
     end

@@ -1,8 +1,11 @@
 .container {
-  margin: 20px auto;
+  margin: 0 auto;
   width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  background-color: #66ffff;
+  text-align: left;
+  border-color: grey;
+  border-width:thin;
+
 }
 th {
   text-align: left;
