@@ -35,3 +35,9 @@ put '/entries/:id' do
   blog.body = params[:body]
   redirect "/entries/#{blog.id}"
 end
+
+delete '/delete/:id' do
+  blog = Entry.find(params[:id])
+  blog.destroy
+  redirect "/"
+end

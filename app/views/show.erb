@@ -7,4 +7,8 @@
 </p>
 <div>
   <a href='/entries/<%=@entry.id%>/edit'>Edit</a>
+  <form action="/delete/<%=@entry.id%>" method="post">
+    <input type="hidden" name="_method" value="delete"/>
+    <input type="submit" name="delete" value="delete"/>
+  </form>
 </div>
