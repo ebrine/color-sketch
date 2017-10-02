@@ -1,3 +1,3 @@
 class Tag < ApplicationRecord
-  # Remember to create a migration!
+  validates :name, presence: true
 end
