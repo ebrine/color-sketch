@@ -1,4 +1,5 @@
 class Tag < ApplicationRecord
-  has_and_belongs_to_many :entries
+  has_many :entries, through: :entries_tags
+  has_many :entries_tags
   validates :name, presence: true
 end
