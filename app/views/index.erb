@@ -1,12 +1,18 @@
 <div class="container">
-  <h1>Welcome to Anonymous Blog!</h1>
-  <h4><a href='/entries/new'>Create New Entry</a></h4>
-  <p>Hello, world!</p>
+  <h1>Welcome to Anon Blog!</h1>
+
+  <div class="home">
+    <p><a href="/">Home</a></p>
+  </div>
+
+  <h4><a href='/entries/new'>Click To Create A New Entry</a></h4>
+  <p>Put your stuff here! </p>
+
   <% if @entries %>
     <% @entries.each do |entry| %>
     <a href="/entries/<%= entry.id %>"><h2><%= entry.title %></h2></a>
     <p><%= entry.author %></p>
-  <% end %>
+    <% end %>
   <% end %>
 
 </div>
