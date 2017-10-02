@@ -15,7 +15,12 @@ describe Entry do
     expect(entry_sample).to_not be_valid
   end
 
+  it "is not valid without an author" do
+    expect(entry_sample).to_not be_valid
+  end
+
   it "is valid with both a title and a body" do
+    entry_sample.author = "Humpty Dumpty"
     expect(entry_sample).to be_valid
   end
 end
