@@ -10,7 +10,7 @@ describe Entry do
     expect(entry_sample).to_not be_valid
   end
 
-  pending "is not valid without a body" do
+  it "is not valid without a body" do
     entry_sample.body = ""
     expect(entry_sample).to_not be_valid
   end
