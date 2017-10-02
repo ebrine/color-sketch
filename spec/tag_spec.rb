@@ -8,7 +8,7 @@ describe Tag do
     expect(tag_sample).to_not be_valid
   end
 
-  pending "is valid with a name" do
+  it "is valid with a name" do
     expect(tag_sample).to be_valid
   end
 end
