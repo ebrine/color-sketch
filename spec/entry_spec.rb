@@ -15,7 +15,7 @@ describe Entry do
     expect(entry_sample).to_not be_valid
   end
 
-  pending "is valid with both a title and a body" do
+  it "is valid with both a title and a body" do
     expect(entry_sample).to be_valid
   end
 end
