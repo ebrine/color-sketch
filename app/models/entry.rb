@@ -1,3 +1,3 @@
 class Entry < ApplicationRecord
-  # Remember to create a migration!
+  validates :title, presence: true
 end

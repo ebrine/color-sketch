@@ -5,7 +5,7 @@ describe Entry do
     title: "Something Good",
     body: "Lorem ipsum whatever")}
 
-  pending "is not valid without a title" do
+  it "is not valid without a title" do
     entry_sample.title = ""
     expect(entry_sample).to_not be_valid
   end
