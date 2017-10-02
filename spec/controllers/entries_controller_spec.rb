@@ -17,15 +17,9 @@ describe "Entries Controller" do
     expect(last_response.status).to eq(200)
   end
 
-  pending 'post /entries returns a 302 status code' do
-    entry_example = Entry.new(
-      author: "El Loko",
-      title: "Ramblings of el Loko",
-      body: "qohenazut oierhb aiut iqjvh wea rzoo")
-
-    entry_example.save
-    post '/entries'
-    expect(last_response.status).to eq(302)
+  it 'post /entries creates a new entry' do
+    post '/entries', {author: "El Loko", title: "Ramblings of el Loko", body: "qohenazut oierhb aiut iqjvh wea rzoo"}
+    expect(Entry.find_by(author: "El Loko")).to_not be_nil
   end
 
 end
