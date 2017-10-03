@@ -16,6 +16,7 @@ post '/entries' do
   entry = Entry.create(title: params[:title], description: params[:description])
   tags = params[:tags].split(",")
   tags =  tags.collect { |tag| tag.strip }
+  tags = tags.reject { |tag| tag.empty? }
   p "-" *300
   p tags
   p "-" *300
@@ -36,23 +37,10 @@ put '/entries/:id' do
   @entry.update_attributes(title: params[:title], description: params[:description])
   tags = params[:tags].split(",")
   tags =  tags.collect { |tag| tag.strip }
+  tags = tags.reject { |tag| tag.empty? }
   p "-" *300
   p tags
   p "-" *300
-
-
-  @entry.tags.each do |tag|
-    name = tag.name
-    p name
-    if tags.exclude?(name)
-      @entry.tags.delete(tag)
-    # association = EntriesTag.find_by(entry: @entry, tag: tag)
-    # p "*" *300
-    # p association
-    # p "*" *300
-    # association.delete
-    end
-  end
 
   tags.each do |name|
     @entry.tags.each do |tag|
@@ -62,6 +50,29 @@ put '/entries/:id' do
       end
     end
   end
+
+  to_delete = []
+  @entry.tags.each do |tag|
+    name = tag.name
+    if tags.exclude?(name)
+      to_delete << name
+    end
+  end
+
+  to_delete.each do |name|
+    @entry.tags.delete(Tag.find_by(name: name))
+  end
+
+  # @entry.tags.each do |tag|
+  #   name = tag.name
+  #   p '#' * 100
+  #   p name
+  #   if tags.exclude?(name)
+  #     @entry.tags.delete(tag)
+  #   end
+  #   p @entry.tags
+  #   p '#' * 100
+  # end
 
   redirect "/entries/#{@entry.id}"
 end
