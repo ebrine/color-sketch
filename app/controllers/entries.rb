@@ -30,3 +30,9 @@ put '/entries/:id' do
   @entry.update_attributes(title: params[:title], description: params[:description])
   redirect "/entries/#{@entry.id}"
 end
+
+delete '/entries/:id' do
+  @entry = Entry.find(params[:id])
+  @entry.destroy
+  redirect '/entries'
+end
