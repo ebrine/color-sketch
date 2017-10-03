@@ -49,6 +49,11 @@ put '/entries/:id' do
         EntriesTag.find_or_create_by(entry: @entry, tag: new_tag)
       end
     end
+
+    if @entry.tags.empty?
+      new_tag = Tag.find_or_create_by(name: name)
+      EntriesTag.find_or_create_by(entry: @entry, tag: new_tag)
+    end
   end
 
   to_delete = []
