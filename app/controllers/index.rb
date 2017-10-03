@@ -3,20 +3,22 @@ get '/' do
   erb :index
 end
 
-get '/list_all' do
-  @all_entries = Entry.all
+get '/entries' do
+  @entries = Entry.all
   erb :list_all
 end
 
-get '/show_entry' do
-  erb :show_entry
+get '/entries/:id' do
+  @entry = Entry.find(params[:id])
+  @tags = @entry.tags
+  erb :'/entries/show'
 end
 
-get '/create' do
+get '/entries/new' do
   erb :create
 end
 
-post '/create' do
+post '/entries' do
   @title = params[:title]
   @body = params[:body]
   @tags = params[:tags]
@@ -26,37 +28,29 @@ post '/create' do
     tag = Tag.find_or_create_by(category: tag_string)
     entry.tags << tag
   end
-  redirect to('/create')
+  redirect to('/entries/new')
 end
 
-get '/update' do
 
-end
-
-post '/update' do
+put '/entries/:id' do
 
 end
 
-get '/delete' do
-  @all_entries = Entry.all
-  erb :delete
-end
 
-post '/delete' do
+delete '/entries/:id' do
   @entry_id = params[:entry_id]
   entry = Entry.find_by(id: @entry_id)
   entry.delete
-  redirect to('/delete')
+  redirect to('/entries')
 end
 
-get '/list_tags' do
-  @all_tags = Tag.all
+get '/tags' do
+  @all_tags = Tag.all.sort{|a, b| a.category <=> b.category}
   erb :list_tags
 end
 
-post '/list_tags' do
-  tag_id = params[:tag_id]
-  tag = Tag.find_by(id: tag_id)
-  @all_entries = tag.entries
-  erb :list_all
+get '/tags/:id' do
+  @tag = Tag.find(params[:id])
+  @entries = @tag.entries
+  erb :'/tags/show'
 end

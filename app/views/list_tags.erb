@@ -1,22 +1,6 @@
 <div class="container">
   <h1>List All Tags!</h1>
-
-  <table>
-    <tr>
-      <th>Tag no.</th>
-      <th>Tag</th>
-    </tr>
-    <% @all_tags.each do |tag| %>
-    <tr>
-      <td><%= tag.id %></td>
-      <td><%= tag.category %></td>
-      </td>
-    </tr>
-    <% end %>
-  </table>
-  <form action="/list_tags" method="post">
-    <p>Enter tag number to view entries</p>
-    <input type="text" name="tag_id">
-    <input type="submit">
-  </form>
+  <% @all_tags.each do |tag| %>
+    <a href= <%= "/tags/#{tag.id}" %> ><%= tag.category %></a>
+  <% end %>
 </div>

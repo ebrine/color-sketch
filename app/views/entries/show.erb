@@ -1,0 +1,13 @@
+<div class="container">
+
+<h1> <%= @entry.title %> </h1>
+<article>
+   <%= @entry.body %>
+   <p>
+   <% @tags.each do |tag| %>
+   <a href= <%= "/tags/#{tag.id}" %> ><%= tag.category %></a>
+   <% end %>
+   </p>
+</article>
+
+</div>
