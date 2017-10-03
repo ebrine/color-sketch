@@ -27,3 +27,15 @@ get '/entries/:id/edit' do
   @entry = Entry.find(params[:id])
   erb :'entries/edit'
 end
+
+put '/entries/:id' do
+  @entry = Entry.find(params[:id])
+  @entry.update(params[:entry])
+  if @entry.valid?
+    @entry.save
+    redirect "/entries/:id"
+  else
+    @errors = @entry.errors.full_messages
+    erb :'entries/edit'
+  end
+end

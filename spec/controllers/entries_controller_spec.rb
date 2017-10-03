@@ -32,4 +32,10 @@ describe "Entries Controller" do
     expect(last_response.status).to eq(200)
   end
 
+  it 'put /entry edits a new entry' do
+    put "/entries/#{test_entry.id}", {entry: {author: "Don Quixote"}}
+    find_entry = Entry.find(test_entry.id)
+    expect(find_entry.author).to eq("Don Quixote")
+  end
+
 end
