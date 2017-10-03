@@ -2,6 +2,6 @@
   <input type="hidden" name="_method" value="put">
   <input type="text" name="title" value="<%= @entry.title %>">
   <input type="text" name="description" value="<%= @entry.description %>">
-  <input type="text" name="tags" value="<% @entry.tags.each do |tag| %><%= tag.name %>, <% end %>">
+  <input type="text" name="tags" value="<% @entry.tags.each do |tag| %><%= tag.name %>,<% end %>">
   <input type="submit" name="submit" value="Edit">
 </form>
