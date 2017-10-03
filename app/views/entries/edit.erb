@@ -1,0 +1,22 @@
+<h1>Edit your Posting</h1>
+
+<div class="container">
+  <form class="edit-post" action="/entries/<%= @entry.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <div>
+      <label for="author">Author:&nbsp</label>
+      <input type="text" name="entry[author]" value="<%= @entry.author %>">
+    </div>
+    <div>
+      <label for="title">Title:&nbsp</label>
+      <input type="text" name="entry[title]" value="<%= @entry.title %>">
+    </div>
+    <div>
+      <label for="body">Body:&nbsp</label>
+      <textarea name="entry[body]" rows="8" cols="40"><%= @entry.body %></textarea>
+    </div>
+    <div>
+      <input type="submit" value="Edit this entry!">
+    </div>
+  </form>
+</div>

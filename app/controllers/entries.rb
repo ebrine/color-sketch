@@ -29,11 +29,13 @@ get '/entries/:id/edit' do
 end
 
 put '/entries/:id' do
+  puts "****************************************"
+  p params
   @entry = Entry.find(params[:id])
   @entry.update(params[:entry])
   if @entry.valid?
     @entry.save
-    redirect "/entries/:id"
+    redirect "/entries/#{params[:id]}"
   else
     @errors = @entry.errors.full_messages
     erb :'entries/edit'
