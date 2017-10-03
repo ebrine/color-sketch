@@ -1,0 +1,6 @@
+<h1> <%= @tag.name %> </h1>
+<% @tag.entries.each do |entry| %>
+  <div>
+    <a href="/entries/<%=entry.id%>"><%= entry.title %></a>
+  </div>
+<% end %>

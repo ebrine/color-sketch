@@ -3,7 +3,7 @@ get '/entries' do
   erb :index
 end
 
-get '/entry/:id' do
+get '/entries/:id' do
   @entry = Entry.find(params[:id])
   erb :show
 end

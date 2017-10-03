@@ -1,6 +1,11 @@
 <div class="container">
   <% if @entry %>
-  <h1><%= @entry.title %></h1>
-  <p><%= @entry.description %></p>
+    <h1><%= @entry.title %></h1>
+    <p><%= @entry.description %></p>
+    <% @entry.tags.each do |tag| %>
+      <div>
+        <a href="/tags/<%=tag.id%>"><%= tag.name %></a>
+      </div>
+    <% end %>
   <% end %>
 </div>
