@@ -13,10 +13,12 @@ get '/entries/:id' do
 end
 
 post '/entries' do
-  p params
   entry = Entry.create(title: params[:title], description: params[:description])
-  tag = Tag.find_or_create_by(name: params[:tag])
-  EntriesTag.create(entry: entry, tag: tag)
+  tags = params[:tags].split(",")
+  tags.each do |tag|
+    new_tag = Tag.find_or_create_by(name: tag)
+    EntriesTag.create(entry: entry, tag: new_tag)
+  end
   redirect '/entries'
 end
 
