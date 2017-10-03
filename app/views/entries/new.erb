@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Create new entry!</h1>
 
-  <form action="/create" method="post">
+  <form action="/entries" method="post">
     <p>Title</p>
     <input type="text" name="title">
     <p>Body</p>
@@ -10,5 +10,11 @@
     <input type="text" name="tags">
     <input type="submit">
   </form>
+
+  <% if @errors %>
+    <% @errors.each do |error| %>
+      <p class="error"> <%= error %> </p>
+    <% end %>
+  <% end %>
 
 </div>

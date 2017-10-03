@@ -8,27 +8,34 @@ get '/entries' do
   erb :list_all
 end
 
+get '/entries/new' do
+  erb :'/entries/new'
+end
+
 get '/entries/:id' do
   @entry = Entry.find(params[:id])
   @tags = @entry.tags
   erb :'/entries/show'
 end
 
-get '/entries/new' do
-  erb :create
-end
 
 post '/entries' do
   @title = params[:title]
   @body = params[:body]
   @tags = params[:tags]
   @tags = @tags.split(", ")
-  entry = Entry.create(title: @title, body: @body)
-  @tags.each do |tag_string|
-    tag = Tag.find_or_create_by(category: tag_string)
-    entry.tags << tag
+  entry = Entry.new(title: @title, body: @body)
+  if !entry.valid?
+    @errors = entry.errors.full_messages
+    erb :'/entries/new'
+  else
+    entry.save
+    @tags.each do |tag_string|
+      tag = Tag.find_or_create_by(category: tag_string)
+      entry.tags << tag
+    end
+    redirect to("/entries/#{entry.id}")
   end
-  redirect to('/entries/new')
 end
 
 

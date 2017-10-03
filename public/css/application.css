@@ -7,3 +7,9 @@
 th {
   text-align: left;
 }
+
+.error {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
