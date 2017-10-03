@@ -15,6 +15,10 @@ end
 post '/entries' do
   entry = Entry.create(title: params[:title], description: params[:description])
   tags = params[:tags].split(",")
+  tags =  tags.collect { |tag| tag.strip }
+  p "-" *300
+  p tags
+  p "-" *300
   tags.each do |tag|
     new_tag = Tag.find_or_create_by(name: tag)
     EntriesTag.create(entry: entry, tag: new_tag)
@@ -31,6 +35,7 @@ put '/entries/:id' do
   @entry = Entry.find(params[:id])
   @entry.update_attributes(title: params[:title], description: params[:description])
   tags = params[:tags].split(",")
+  tags =  tags.collect { |tag| tag.strip }
   p "-" *300
   p tags
   p "-" *300
@@ -43,14 +48,14 @@ put '/entries/:id' do
     end
   end
 
-  @entry.tags.each do |tag|
-    name = tag.name
-    p name
-    if tags.exclude?(name)
-    association = EntriesTag.find_by(entry: @entry, tag: tag)
-    association.destroy
-    end
-  end
+  # @entry.tags.each do |tag|
+  #   name = tag.name
+  #   p name
+  #   if tags.exclude?(name)
+  #   association = EntriesTag.find_by(entry: @entry, tag: tag)
+  #   association.destroy
+  #   end
+  # end
   redirect "/entries/#{@entry.id}"
 end
 
