@@ -1,5 +1,3 @@
 get '/' do
-  @entries = Entry.all
-
-  erb :index
+  redirect "/entries"
 end
