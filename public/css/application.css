@@ -7,3 +7,18 @@
 th {
   text-align: left;
 }
+
+
+/*Button Styling*/
+a:link {
+  color: #4f5659;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #588799;
+}
+
+a:hover {
+  color: #91acb7;
+}

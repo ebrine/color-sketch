@@ -3,13 +3,13 @@ get '/entries' do
   erb :index
 end
 
+get '/entries/new' do
+  erb :new
+end
+
 get '/entries/:id' do
   @entry = Entry.find(params[:id])
   erb :show
-end
-
-get '/entries/new' do
-  erb :new
 end
 
 post '/entries' do
