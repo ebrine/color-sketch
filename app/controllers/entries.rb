@@ -39,6 +39,21 @@ put '/entries/:id' do
   p "-" *300
   p tags
   p "-" *300
+
+
+  @entry.tags.each do |tag|
+    name = tag.name
+    p name
+    if tags.exclude?(name)
+      @entry.tags.delete(tag)
+    # association = EntriesTag.find_by(entry: @entry, tag: tag)
+    # p "*" *300
+    # p association
+    # p "*" *300
+    # association.delete
+    end
+  end
+
   tags.each do |name|
     @entry.tags.each do |tag|
       if tag.name != name
@@ -48,14 +63,6 @@ put '/entries/:id' do
     end
   end
 
-  # @entry.tags.each do |tag|
-  #   name = tag.name
-  #   p name
-  #   if tags.exclude?(name)
-  #   association = EntriesTag.find_by(entry: @entry, tag: tag)
-  #   association.destroy
-  #   end
-  # end
   redirect "/entries/#{@entry.id}"
 end
 
