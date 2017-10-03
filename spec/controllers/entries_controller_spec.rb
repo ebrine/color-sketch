@@ -27,4 +27,9 @@ describe "Entries Controller" do
     expect(last_response.status).to eq(200)
   end
 
+  it 'entries/edit returns a 200 status code' do
+    get "entries/#{test_entry.id}/edit"
+    expect(last_response.status).to eq(200)
+  end
+
 end
