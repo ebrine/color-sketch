@@ -17,3 +17,8 @@ post '/entries' do
     erb :'entries/new'
   end
 end
+
+get '/entries/:id' do
+  @entry = Entry.find(params[:id])
+  erb :'entries/show'
+end

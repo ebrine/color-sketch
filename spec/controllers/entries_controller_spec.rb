@@ -22,4 +22,9 @@ describe "Entries Controller" do
     expect(Entry.find_by(author: "El Loko")).to_not be_nil
   end
 
+  it 'entries/show returns a 200 status code' do
+    get "/entries/#{test_entry.id}"
+    expect(last_response.status).to eq(200)
+  end
+
 end
