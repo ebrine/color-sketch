@@ -1,0 +1,6 @@
+<form action="/entries/<%= @entry.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="text" name="title" value="<%= @entry.title %>">
+  <input type="text" name="description" value="<%= @entry.description %>">
+  <input type="submit" name="submit" value="Edit">
+</form>

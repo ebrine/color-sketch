@@ -1,5 +1,10 @@
 <div class="container">
+  <h1>Posts</h1>
   <% if @entry %>
+    <form action="/entries/<%= @entry.id %>/edit" method="get">
+      <input type="submit" name="submit" value="Edit Post">
+    </form>
+
     <h1><%= @entry.title %></h1>
     <p><%= @entry.description %></p>
     <% @entry.tags.each do |tag| %>

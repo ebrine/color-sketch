@@ -19,3 +19,14 @@ post '/entries' do
   EntriesTag.create(entry: entry, tag: tag)
   redirect '/entries'
 end
+
+get '/entries/:id/edit' do
+  @entry = Entry.find(params[:id])
+  erb :edit
+end
+
+put '/entries/:id' do
+  @entry = Entry.find(params[:id])
+  @entry.update_attributes(title: params[:title], description: params[:description])
+  redirect "/entries/#{@entry.id}"
+end
