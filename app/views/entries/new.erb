@@ -1,0 +1,21 @@
+<h1>Create a new blog post!</h1>
+
+<div class="container">
+  <form class="new-post" action="/entries" method="post">
+    <div>
+      <label for="author">Author:&nbsp</label>
+      <input type="text" name="entry[author]" placeholder="John Doe">
+    </div>
+    <div>
+      <label for="title">Title:&nbsp</label>
+      <input type="text" name="entry[title]">
+    </div>
+    <div>
+      <label for="body">Body:&nbsp</label>
+      <textarea name="entry[body]" rows="8" cols="40"></textarea>
+    </div>
+    <div>
+      <input type="submit" value="Post to Blog">
+    </div>
+  </form>
+</div>

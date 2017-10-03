@@ -18,7 +18,7 @@ describe "Entries Controller" do
   end
 
   it 'post /entries creates a new entry' do
-    post '/entries', {author: "El Loko", title: "Ramblings of el Loko", body: "qohenazut oierhb aiut iqjvh wea rzoo"}
+    post '/entries', {entry: {author: "El Loko", title: "Ramblings of el Loko", body: "qohenazut oierhb aiut iqjvh wea rzoo"}}
     expect(Entry.find_by(author: "El Loko")).to_not be_nil
   end
 
