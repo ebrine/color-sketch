@@ -14,6 +14,8 @@ end
 
 post '/entries' do
   p params
-  Entry.create(title: params[:title], description: params[:description])
+  entry = Entry.create(title: params[:title], description: params[:description])
+  tag = Tag.find_or_create_by(name: params[:tag])
+  EntriesTag.create(entry: entry, tag: tag)
   redirect '/entries'
 end
