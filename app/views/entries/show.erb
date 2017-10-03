@@ -7,3 +7,7 @@
 
 <a href="/entries">Go back to all entries</a>
 <a href="/entries/<%= @entry.id %>/edit">Edit Post</a>
+<form id="delete" action="/entries/<%= @entry.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete" />
+</form>

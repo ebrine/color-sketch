@@ -1,7 +1,7 @@
 require_relative '../spec_helper'
 
 describe "Entries Controller" do
-  let(:test_entry) { Entry.create(
+  let!(:test_entry) { Entry.create(
       author: "Anonymous Ace",
       title: "There be dragons here!",
       body: "I like training my dragon"
@@ -38,4 +38,7 @@ describe "Entries Controller" do
     expect(find_entry.author).to eq("Don Quixote")
   end
 
+  it 'deletes /entries/:id for an entry' do
+    expect { delete "/entries/#{test_entry.id}" }.to change { Entry.all.length }.by -1
+  end
 end

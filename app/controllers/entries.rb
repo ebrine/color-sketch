@@ -29,8 +29,6 @@ get '/entries/:id/edit' do
 end
 
 put '/entries/:id' do
-  puts "****************************************"
-  p params
   @entry = Entry.find(params[:id])
   @entry.update(params[:entry])
   if @entry.valid?
@@ -40,4 +38,10 @@ put '/entries/:id' do
     @errors = @entry.errors.full_messages
     erb :'entries/edit'
   end
+end
+
+delete '/entries/:id' do
+  @entry = Entry.find(params[:id])
+  @entry.destroy
+  redirect "/entries"
 end
