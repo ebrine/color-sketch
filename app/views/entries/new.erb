@@ -1,5 +1,13 @@
 <h1>Create a new blog post!</h1>
 
+<% if @errors %>
+<ul id="errors">
+  <% @errors.each do |error| %>
+  <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
+
 <div class="container">
   <form class="new-post" action="/entries" method="post">
     <div>
