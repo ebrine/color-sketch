@@ -2,9 +2,11 @@
   <h1>Your new Blog</h1>
   <aside>
     <ul>
+      <% @entries.each do |entry| %>
       <li>
-        <a href="javascript:;">Entries Placeholder</a>
+        <a href="/entries/<%= @entry.id %>"><%= @entry.name %></a>
       </li>
+      <% end %>
     </ul>
   </aside>
 </section>

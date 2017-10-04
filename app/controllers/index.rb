@@ -9,7 +9,12 @@ get '/entries' do
 end
 
 # new -->
-
 get '/entries/new' do
   erb:'entries/new'
+end
+
+# post new -->
+post '/entries' do
+  @entry = Entry.create(params[:entry])
+  redirect "/entries"
 end
