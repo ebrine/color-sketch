@@ -1,3 +1,15 @@
 <section>
   <h1>New Blog Entry</h1>
+  <form action="/entries" method="post">
+    <label>Name:
+      <input type="text" name="entries[name]" value="" />
+    </label>
+    <label>Author:
+      <input type="text" name="entries[author]" value="" />
+    </label>
+    <label>Body:
+      <textarea type="textarea" name="entries[content]" value=""></textarea>
+    </label>
+    <input type="Submit" value="Post" />
+  </form>
 </section>
