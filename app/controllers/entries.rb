@@ -35,20 +35,24 @@ put '/entries/:id' do
 
   tags = split_tags(params[:tags])
 
+  # adds new tags
   tags.each do |name|
     @entry.tags.each do |tag|
+      # if post already has tags
       if tag.name != name
         new_tag = Tag.find_or_create_by(name: name)
         EntriesTag.find_or_create_by(entry: @entry, tag: new_tag)
       end
     end
 
+    # edge case -- if post does not yet have tags
     if @entry.tags.empty?
       new_tag = Tag.find_or_create_by(name: name)
       EntriesTag.find_or_create_by(entry: @entry, tag: new_tag)
     end
   end
 
+  # removes tags
   to_delete = []
   @entry.tags.each do |tag|
     name = tag.name
