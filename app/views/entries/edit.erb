@@ -1,0 +1,16 @@
+<section class="container">
+<section>
+  <h1>New Blog Entry</h1>
+  <form action="/entries" method="post">
+    <label>Name:
+      <input type="text" name="entry[name]" value=" <%= @entry.name %> " />
+    </label>
+    <label>Author:
+      <input type="text" name="entry[author]" value=" <%= @entry.author %> " />
+    </label>
+    <label>Body:
+      <textarea type="textarea" name="entry[content]" value=""> <%= @entry.content %></textarea>
+    </label>
+    <input type="Submit" value="Post" />
+  </form>
+</section>

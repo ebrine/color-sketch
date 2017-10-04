@@ -5,9 +5,13 @@
       <% @entries.each do |entry| %>
       <li>
         <a href="/entries/<%= entry.id %>"><%= entry.name %></a>
+          <span>|</span>
+        <a href="/entries/ <%= entry.id %>/edit">Edit</a>
+          <span>|</span>
+        <a href="/entries/ <%= entry.id %>/delete">Delete</a>
       </li>
       <% end %>
     </ul>
-    <span><a href="/entries/new">New Entry</a></span>
+    <span><a id="new-entry-button" href="/entries/new">New Entry</a></span>
   </aside>
 </section>

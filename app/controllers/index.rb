@@ -24,3 +24,14 @@ get '/entries/:id' do
   @entry = Entry.find(params[:id])
   erb :'entries/show'
 end
+
+# edit -->
+
+get '/entries/:id/edit' do
+  @entry = Entry.find(params[:id])
+  erb :'entries/edit'
+end
+
+# update -->
+
+# delete -->
