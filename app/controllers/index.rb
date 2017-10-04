@@ -18,3 +18,9 @@ post '/entries' do
   @entry = Entry.create(params[:entry])
   redirect "/entries"
 end
+
+# show -->
+get '/entries/:id' do
+  @entry = Entry.find(params[:id])
+  erb :'entries/show'
+end

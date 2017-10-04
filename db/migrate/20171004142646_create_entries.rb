@@ -4,6 +4,7 @@ class CreateEntries < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :author
       t.string :content
+      t.timestamps
     end
   end
 end
