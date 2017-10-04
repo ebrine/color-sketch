@@ -38,9 +38,6 @@ put '/entries/:id' do
   tags = params[:tags].split(",")
   tags =  tags.collect { |tag| tag.strip }
   tags = tags.reject { |tag| tag.empty? }
-  p "-" *300
-  p tags
-  p "-" *300
 
   tags.each do |name|
     @entry.tags.each do |tag|
@@ -67,17 +64,6 @@ put '/entries/:id' do
   to_delete.each do |name|
     @entry.tags.delete(Tag.find_by(name: name))
   end
-
-  # @entry.tags.each do |tag|
-  #   name = tag.name
-  #   p '#' * 100
-  #   p name
-  #   if tags.exclude?(name)
-  #     @entry.tags.delete(tag)
-  #   end
-  #   p @entry.tags
-  #   p '#' * 100
-  # end
 
   redirect "/entries/#{@entry.id}"
 end
