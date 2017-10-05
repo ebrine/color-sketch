@@ -37,7 +37,12 @@ end
 patch '/entries/:id' do
   @entry = Entry.find(params[:id])
   @entry.update(params[:entry])
-  redirect "/entries"
+  redirect "/entries/#{entry.id}"
 end
 
 # delete -->
+
+delete '/entries/:id' do
+  @entry = Entry.find(params[:id]).destroy!
+  redirect "/entries"
+end
