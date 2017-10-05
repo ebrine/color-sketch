@@ -34,4 +34,10 @@ end
 
 # update -->
 
+patch '/entries/:id' do
+  @entry = Entry.find(params[:id])
+  @entry.update(params[:entry])
+  redirect "/entries"
+end
+
 # delete -->
