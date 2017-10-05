@@ -8,7 +8,7 @@
           <span>|</span>
         <a href="/entries/<%= entry.id %>/edit">Edit</a>
           <span>|</span>
-        <form id="delete-form" action="/entries" method="post">
+        <form id="delete-form" action="/entries/<%= entry.id %>/delete" method="post">
           <input type="hidden" name="_method" value="delete" />
           <input type="submit" name="_method" value="Delete"  />
         </form>

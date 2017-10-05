@@ -42,7 +42,7 @@ end
 
 # delete -->
 
-delete '/entries/:id' do
+delete '/entries/:id/delete' do
   @entry = Entry.find(params[:id]).destroy!
   redirect "/entries"
 end
